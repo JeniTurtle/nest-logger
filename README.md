@@ -21,15 +21,20 @@ npm install @jiaxinjiang/nest-logger --save
 
 ### Getting Started
 
-First, you need to define the log configuration file. You must rely on the @jiaxinjiang/nest config module.
+First, you need to define the log configuration file. You must rely on the `@jiaxinjiang/nest-config` module.
 
 Directory structure:
 
 ```bash
-/src
-├── app.module.ts
-├── config
-│   ├── logger.config.ts
+├── env
+│   ├── env
+│   ├── env.dev
+│   ├── env.prod
+│   ├── env.test
+├── src
+│   ├── app.module.ts
+│   ├── config
+│       ├── logger.config.ts
 ```
 
 Logger configuration file:
