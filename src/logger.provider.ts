@@ -7,6 +7,18 @@ import { WINSTON_LOGGER } from './logger.constants';
 export class LoggerProvider implements LoggerService {
   protected context: string;
 
+  private isTimestampEnabled: boolean = false;
+
+  static instance: LoggerProvider;
+
+  static logLevels = [
+    'log',
+    'error',
+    'warn',
+    'debug',
+    'verbose',
+  ];
+
   constructor(@Inject(WINSTON_LOGGER) private readonly logger: Logger) {}
 
   setContext(value: string) {
@@ -49,5 +61,23 @@ export class LoggerProvider implements LoggerService {
     return this.logger.verbose(format(message, ...optionalParams), {
       context: this.context || optionalParams[0],
     });
+  }
+
+  callFunction(name, message, context) {
+    if (!this.isLogLevelEnabled(name)) {
+        return;
+    }
+    const instance = this.getInstance();
+    const func = instance && instance[name];
+    func && func.call(instance, message, context || this.context, this.isTimestampEnabled);
+  }
+  
+  getInstance() {
+    const { instance } = LoggerProvider;
+    return instance === this ? LoggerProvider : instance;
+  }
+
+  isLogLevelEnabled(level) {
+    return LoggerProvider.logLevels.includes(level);
   }
 }
