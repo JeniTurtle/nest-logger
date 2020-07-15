@@ -1,6 +1,6 @@
 {
   "name": "@jiaxinjiang/nest-logger",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Log component for NestJs.",
   "keywords": [
     "nest",
@@ -12,8 +12,13 @@
   },
   "dependencies": {
     "@jiaxinjiang/nest-config": "^1.0.4",
+    "@nestjs/platform-fastify": "^7.3.2",
+    "cls-hooked": "^4.2.2",
+    "fastify": "^3.0.2",
+    "fastify-plugin": "^1.6.1",
     "lodash": "^4.17.15",
     "reflect-metadata": "^0.1.12",
+    "uuid": "^8.2.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {

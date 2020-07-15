@@ -1,1 +1,0 @@
-export const WINSTON_LOGGER = '__NEST_CUSTOM_CORE_LOGGER__';

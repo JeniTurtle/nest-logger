@@ -6,6 +6,7 @@
 
 - Nestjs log component encapsulated with Winston.
 - Free and flexible to define context.
+- Support print request context（Fastify only）.
 
 ### Installation
 
