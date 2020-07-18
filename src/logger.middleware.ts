@@ -1,11 +1,11 @@
 import { v4 as uuid } from 'uuid';
 import * as fp from 'fastify-plugin';
 import { cls } from './logger.session';
-import { REQUEST_INFO } from './logger.constants';
+import { REQUEST_INFO, REQUEST_ID_HEADER } from './logger.constants';
 
 function requestContext(fastify, opts, next) {
   fastify.addHook('onRequest', (req, res, done) => {
-    const requestId = req.headers['request-context-id'] || uuid();
+    const requestId = req.headers[REQUEST_ID_HEADER] || uuid();
     cls.bindEmitter(req.raw);
     cls.bindEmitter(res.res);
     cls.runWith(() => {
