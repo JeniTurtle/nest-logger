@@ -22,15 +22,22 @@ export class LoggerProvider implements NestLoggerService {
 
   constructor(@Inject(WINSTON_LOGGER) private readonly logger: Logger) {}
 
+  get requestId() {
+    const requestInfo: RequestMetadata = cls.get(REQUEST_INFO);
+    if (requestInfo && requestInfo.requestId) {
+      return requestInfo.requestId;
+    }
+    return null;
+  }
+
   setContext(value: string) {
     this.context = value;
     return this;
   }
 
   requestContext(context?: string) {
-    const requestInfo: RequestMetadata = cls.get(REQUEST_INFO);
-    if (requestInfo && requestInfo.requestId) {
-      return `${context || this.context}-${requestInfo.requestId}`;
+    if (this.requestId) {
+      return `${context || this.context}-${this.requestId}`;
     }
     return context || this.context;
   }
