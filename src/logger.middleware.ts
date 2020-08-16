@@ -17,7 +17,8 @@ function requestContext(fastify, opts, next) {
   next();
 }
 
+// @ts-ignore
 export const requestContextPlugin = fp(requestContext, {
-  fastify: '2.x',
+  fastify: '3.x',
   name: 'fastify-request-context',
 });

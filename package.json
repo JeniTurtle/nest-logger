@@ -1,6 +1,6 @@
 {
   "name": "@jiaxinjiang/nest-logger",
-  "version": "1.0.9",
+  "version": "2.0.2",
   "description": "Log component for NestJs.",
   "keywords": [
     "nest",
@@ -14,8 +14,8 @@
     "@jiaxinjiang/nest-config": "^1.0.4",
     "@nestjs/platform-fastify": "^7.3.2",
     "cls-hooked": "^4.2.2",
-    "fastify": "^3.0.2",
-    "fastify-plugin": "^1.6.1",
+    "fastify": "^3.2.0",
+    "fastify-plugin": "^2.3.0",
     "lodash": "^4.17.15",
     "reflect-metadata": "^0.1.12",
     "uuid": "^8.2.0",
@@ -31,7 +31,7 @@
     "jest": "^24.7.1",
     "prettier": "^1.13.7",
     "ts-jest": "^24.0.2",
-    "typescript": "^3.7.3"
+    "typescript": "3.7.3"
   },
   "engines": {
     "node": ">=8.9.0"
